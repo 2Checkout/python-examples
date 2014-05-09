@@ -259,6 +259,8 @@ if __name__ == '__main__':
 In the index route, we will use 'render_template' to return our 'index.html' and display it to the buyer.
 
 ```
+@app.route('/')
+@app.route('/index')
 def index():
     return render_template("index.html")
 ```
@@ -267,6 +269,7 @@ In the order route, we will use the token passed from our credit card form to su
 
 
 ```
+@app.route('/order', methods=['POST'])
 def order():
     # Setup credentials and environment
     twocheckout.Api.auth_credentials({
